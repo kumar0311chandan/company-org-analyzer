@@ -29,7 +29,7 @@ class CsvEmployeeParserTest {
         assertEquals(2, result.employees().size());
         assertTrue(result.errors().isEmpty());
 
-        Employee e1 = result.employees().get(0);
+        Employee e1 = result.employees().getFirst();
         assertEquals(1, e1.id());
         assertNull(e1.managerId());
 
@@ -68,7 +68,7 @@ class CsvEmployeeParserTest {
         var result = parse(csv);
 
         assertEquals(1, result.employees().size());
-        assertNull(result.employees().get(0).managerId());
+        assertNull(result.employees().getFirst().managerId());
     }
 
     @Test
@@ -101,7 +101,7 @@ class CsvEmployeeParserTest {
 
         assertEquals(2, result.employees().size()); // Lines 1 & 3 valid
         assertEquals(1, result.errors().size());
-        assertTrue(result.errors().get(0).contains("Line 3"));
+        assertTrue(result.errors().getFirst().contains("Line 3"));
     }
 
     @Test
@@ -118,8 +118,8 @@ class CsvEmployeeParserTest {
         assertEquals(2, result.employees().size()); // 1 & 3 valid
         assertEquals(1, result.errors().size());
 
-        assertTrue(result.errors().get(0).contains("Line 3"));
-        assertTrue(result.errors().get(0).contains("Salary must be positive"));
+        assertTrue(result.errors().getFirst().contains("Line 3"));
+        assertTrue(result.errors().getFirst().contains("Salary must be positive"));
     }
 
     @Test
@@ -134,7 +134,7 @@ class CsvEmployeeParserTest {
 
         assertEquals(1, result.employees().size());
         assertEquals(1, result.errors().size());
-        assertTrue(result.errors().get(0).contains("Line 2"));
+        assertTrue(result.errors().getFirst().contains("Line 2"));
     }
 
     @Test

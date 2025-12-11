@@ -88,7 +88,7 @@ class OrganizationAnalyzerTest {
         AnalysisReport report = analyzer.analyze(5, 1);
 
         assertFalse(report.getCircularReferences().isEmpty());
-        assertTrue(report.getCircularReferences().get(0).contains("Circular"));
+        assertTrue(report.getCircularReferences().getFirst().contains("Circular"));
 
         // Cycle nodes excluded from all analysis
         assertTrue(report.getUnderpaidManagers().isEmpty());
@@ -109,7 +109,7 @@ class OrganizationAnalyzerTest {
         AnalysisReport report = analyzer.analyze(2, 1);
 
         assertEquals(1, report.getInvalidManagerReferences().size());
-        assertTrue(report.getInvalidManagerReferences().get(0).contains("9999"));
+        assertTrue(report.getInvalidManagerReferences().getFirst().contains("9999"));
     }
 
     @Test
@@ -126,7 +126,7 @@ class OrganizationAnalyzerTest {
         AnalysisReport report = analyzer.analyze(3, 1);
 
         assertEquals(1, report.getDuplicateIds().size());
-        assertTrue(report.getDuplicateIds().get(0).contains("5"));
+        assertTrue(report.getDuplicateIds().getFirst().contains("5"));
     }
 
     @Test

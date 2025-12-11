@@ -12,7 +12,7 @@ public class EmployeeRepository {
     private final List<String> invalidManagers = new ArrayList<>();
     private final List<String> duplicateIds = new ArrayList<>();
 
-    private Employee ceo;
+    private final Employee ceo;
 
     public EmployeeRepository(List<Employee> employees) {
 
