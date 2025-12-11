@@ -136,7 +136,7 @@ src/main/resources/employees.csv
 Run:
 
 ```bash
-java -jar target/company-org-analyzer-1.0-SNAPSHOT.jar
+java -jar target/company-org-analyzer-1.0.jar
 ```
 
 No command-line arguments required.
